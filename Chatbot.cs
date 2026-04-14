@@ -5,6 +5,7 @@ using CybersecurityChatbot;
 namespace CybersecurityChatbot
 {
     public class Chatbot
+    
     {
         private string UserName;
         private Dictionary<string, string> responses;
@@ -35,7 +36,7 @@ namespace CybersecurityChatbot
 
           if (!string.IsNullOrWhiteSpace(UserName))
           {
-              UserName = "Valued User";
+              UserName = UserName.Trim();
               Console.ForegroundColor = ConsoleColor.Green;
               ConsoleUI.TypeMessage($"Nice to meet you, {UserName}! How can I assist you with cybersecurity today?");
           }
