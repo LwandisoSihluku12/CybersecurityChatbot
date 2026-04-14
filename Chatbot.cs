@@ -5,7 +5,7 @@ using CybersecurityChatbot;
 namespace CybersecurityChatbot
 {
     public class Chatbot
-    
+
     {
         private string UserName;
         private Dictionary<string, string> responses;
@@ -26,7 +26,7 @@ namespace CybersecurityChatbot
         public void GreetUser( )
        {
            Console.ForegroundColor = ConsoleColor.Cyan;
-           ConsoleUI.TypeMessage("Welcome to the Cybersecurity Awareness Bot!");
+           ConsoleUI.TypeMessage("Welcome to the Cybersecurity Awareness Bot, My Name is CUERER, a chatbot assistant!");
            ConsoleUI.TypeMessage("Please enter your name:");
            Console.ResetColor();
 
@@ -38,7 +38,7 @@ namespace CybersecurityChatbot
           {
               UserName = UserName.Trim();
               Console.ForegroundColor = ConsoleColor.Green;
-              ConsoleUI.TypeMessage($"Nice to meet you, {UserName}! How can I assist you with cybersecurity today?");
+              ConsoleUI.TypeMessage($"Nice to meet you, {UserName}! My Name is CUERER, a chatbot assistant. How can I assist you with cybersecurity today?");
           }
           else
           {
