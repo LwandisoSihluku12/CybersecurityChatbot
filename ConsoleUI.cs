@@ -1,5 +1,5 @@
 using System;
-using System.Threading
+using System.Threading;
 
 namespace CybersecurityChatbot
 {
@@ -23,7 +23,7 @@ namespace CybersecurityChatbot
             foreach (char c in message)
             {
                 Console.Write(c);
-                Thread.Sleep(delay)
+                Thread.Sleep(delay);
             }
             Console.WriteLine();
 
