@@ -15,7 +15,7 @@ namespace CybersecurityChatbot
  ██║      ██║   ██║██╔══╝  ██╔══██╗██╔══╝  ██╔══██╗
  ╚██████╗ ╚██████╔╝███████╗██║  ██║███████╗██║  ██║
   ╚═════╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-            AWARENESS BOT - STAY SAFE ONLINE");
+           MY NAME IS CUERER AN AWARENESS BOT - STAY SAFE ONLINE");
             Console.ResetColor();
         }
         public static void TypeMessage(string message, int delay = 30)

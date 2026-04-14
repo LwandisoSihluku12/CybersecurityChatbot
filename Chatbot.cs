@@ -1,14 +1,18 @@
 using System;
+using System.Media;
 using System.Collections.Generic;
 using CybersecurityChatbot;
 
 namespace CybersecurityChatbot
 {
+    
     public class Chatbot
 
     {
         private string UserName;
         private Dictionary<string, string> responses;
+
+        
 
         public Chatbot()
         {
@@ -22,7 +26,23 @@ namespace CybersecurityChatbot
                 { "how to recognize a secure website?", "Look for 'https://' in the URL and a padlock icon in the address bar to ensure the website is secure." }
             };
         }
-    
+        public void PlayWelcomeAudio(string audioFilePath)
+        {
+           try
+        {
+        // SoundPlayer is a built-in Windows class for .wav files
+        using (SoundPlayer player = new SoundPlayer(audioFilePath))
+        {
+            player.PlaySync(); // This plays the audio and waits for it to finish
+        }
+     }
+    catch (Exception ex)
+    {
+        // If the file is missing or there's an error, we just log it and continue
+        Console.WriteLine($"[Audio Note: {ex.Message}]");
+    }
+}
+
         public void GreetUser( )
        {
            Console.ForegroundColor = ConsoleColor.Cyan;

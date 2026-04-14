@@ -7,6 +7,8 @@ namespace CybersecurityChatbot
         static void Main(string[] args)
         {
             Chatbot chatbot = new Chatbot();
+            //NEW: Play voice greeting
+            chatbot.PlayWelcomeAudio("welcome.wav");
 
             // 1. Display ASCII Art
             ConsoleUI.DisplayAsciiArt();
