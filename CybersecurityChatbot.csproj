@@ -12,7 +12,6 @@
     <PackageReference Include="System.Windows.Extensions" Version="8.0.0" />
   </ItemGroup>
 
-  <!-- Exclude the WPF project files from this project's implicit compile items -->
   <ItemGroup>
     <Compile Remove="CybersecurityChatbot.WPF\**\*.cs" />
     <Page Remove="CybersecurityChatbot.WPF\**\*.xaml" />
