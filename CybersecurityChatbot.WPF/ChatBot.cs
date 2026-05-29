@@ -1,7 +1,7 @@
 using System;
 using System.Media;
 
-namespace CybersecurityChatbotWPF
+namespace CybersecurityChatbot.WPF
 {
     public class ChatBot
     {
@@ -9,7 +9,7 @@ namespace CybersecurityChatbotWPF
         private SentimentDetector _sentiment = new SentimentDetector();
         private MemoryStore _memory = new MemoryStore();
         private bool _awaitingName = true;
-        private string _lastTopic;
+        private string? _lastTopic;
 
         public string GetGreeting() => "Welcome to CUERER!\nPlease enter your name to begin:";
 
@@ -29,12 +29,12 @@ namespace CybersecurityChatbotWPF
 
             Sentiment mood = _sentiment.Detect(input);
             string sResponse = _sentiment.GetSentimentResponse(mood);
-            string kResponse = _keywords.GetResponse(input, out string matched);
+            string? kResponse = _keywords.GetResponse(input, out string? matched);
 
             if (matched != null)
             {
                 _lastTopic = matched;
-                return $"{sResponse}{_memory.GetPersonalisedOpener()}{kResponse}";
+                return $"{sResponse}{_memory.GetPersonalisedOpener()}{kResponse!}";
             }
 
             return "I'm not sure I understand. Try asking about 'phishing' or 'passwords'.";

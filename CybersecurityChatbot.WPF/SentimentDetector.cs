@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CybersecurityChatbotWPF
+namespace CybersecurityChatbot.WPF
 {
     public enum Sentiment { Neutral, Worried, Curious, Frustrated, Happy }
 
@@ -46,7 +46,7 @@ namespace CybersecurityChatbotWPF
                 case Sentiment.Happy:
                     return "I'm glad I could help! If you have any more questions, feel free to ask.";
                 default:
-                    return null;
+                    return string.Empty;
             }
         }
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CybersecurityChatbotWPF
+namespace CybersecurityChatbot.WPF
 {
     public class KeywordResponder
     {
@@ -46,7 +46,7 @@ namespace CybersecurityChatbotWPF
             };
         }
 
-        public string GetResponse(string input, out string matchedKeyword)
+        public string? GetResponse(string input, out string? matchedKeyword)
         {
             matchedKeyword = null;
             foreach (var keyword in _responses.Keys)
