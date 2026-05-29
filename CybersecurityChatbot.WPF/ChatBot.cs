@@ -11,6 +11,8 @@ namespace CybersecurityChatbot.WPF
         private bool _awaitingName = true;
         private string? _lastTopic;
 
+        public static object Blocks { get; internal set; }
+
         public string GetGreeting() => "Welcome to CUERER!\nPlease enter your name to begin:";
 
         public string ProcessInput(string input)

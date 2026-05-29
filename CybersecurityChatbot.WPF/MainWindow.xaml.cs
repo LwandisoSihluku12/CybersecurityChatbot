@@ -1,24 +1,20 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace CybersecurityChatbot.WPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        // This must match the name of your logic class
         private ChatBot _chatBot;
-
-        
 
         public MainWindow()
         {
             InitializeComponent();
             _chatBot = new ChatBot();
-
-            // 1. Set the ASCII Art (Make sure x:Name="AsciiDisplay" exists in XAML)
+            
             AsciiDisplay.Text = @"
   ██████╗ ██╗   ██╗███████╗██████╗ ███████╗██████╗ 
  ██╔════╝ ██║   ██║██╔════╝██╔══██╗██╔════╝██╔══██╗
@@ -27,49 +23,74 @@ namespace CybersecurityChatbot.WPF
  ╚██████╗ ╚██████╔╝███████╗██║  ██║███████╗██║  ██║
   ╚═════╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝";
 
-            // 2. Play the audio file
+            // Initial greeting
+            AppendMessage("CUERER", _chatBot.GetGreeting(), Brushes.Cyan);
+        }
+
+        // 1. Audio plays IMMEDIATELY when window is visible
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
             _chatBot.PlayGreeting("welcome.wav");
-
-            // 3. Show initial greeting
-            ChatDisplay.Text = "CUERER: " + _chatBot.GetGreeting() + "\n" + new string('-', 40);
+            UserInput.Focus();
         }
 
-        // This runs when the SEND button is clicked
-        private void SendButton_Click(object sender, RoutedEventArgs e)
+        private void SendButton_Click(object sender, RoutedEventArgs e) => HandleInput();
+        private void UserInput_KeyDown(object sender, KeyEventArgs e) { if (e.Key == Key.Enter) HandleInput(); }
+
+        private void HandleInput()
         {
-            SendMessage();
+            string input = UserInput.Text.Trim();
+            if (string.IsNullOrWhiteSpace(input)) return;
+
+            // 2. Different Colors (User = Green)
+            AppendMessage("You", input, Brushes.LightGreen);
+            UserInput.Clear();
+
+            string response = _chatBot.ProcessInput(input);
+
+            // 2. Different Colors (Bot = Cyan)
+            AppendMessage("CUERER", response, Brushes.Cyan);
+            
+            ChatScroller.ScrollToEnd();
         }
 
-        // This runs when you press ENTER in the text box
-        private void UserInput_KeyDown(object sender, KeyEventArgs e)
+        // This helper method creates the colored text
+        private void AppendMessage(string sender, string message, Brush color)
         {
-            if (e.Key == Key.Enter)
+            Paragraph p = new Paragraph();
+
+            // Add Sender Name
+            p.Inlines.Add(new Run($"{sender}: ") { Foreground = color, FontWeight = FontWeights.Bold });
+
+            // Add Message
+            p.Inlines.Add(new Run(message) { Foreground = Brushes.White });
+
+            // Use object so we can pattern-match at runtime whether the control
+            // is a RichTextBox or a TextBlock (XAML may declare either).
+            object chatObj = ChatDisplay;
+
+            if (chatObj is System.Windows.Controls.RichTextBox rtb)
             {
-                SendMessage();
+                rtb.Document.Blocks.Add(p);
+
+                // Add Separator
+                Paragraph sep = new Paragraph(new Run("-----------------------------------"))
+                {
+                    Foreground = Brushes.DimGray,
+                    FontSize = 8
+                };
+
+                rtb.Document.Blocks.Add(sep);
+            }
+            else if (chatObj is System.Windows.Controls.TextBlock tb)
+            {
+                tb.Inlines.Add(new Run($"{sender}: ") { Foreground = color, FontWeight = FontWeights.Bold });
+                tb.Inlines.Add(new Run(message) { Foreground = Brushes.White });
+                tb.Inlines.Add(new LineBreak());
+                tb.Inlines.Add(new Run("-----------------------------------") { Foreground = Brushes.DimGray, FontSize = 8 });
             }
         }
 
-        private void SendMessage()
-        {
-            string input = UserInput.Text;
-
-            // Don't do anything if the input is empty
-            if (string.IsNullOrWhiteSpace(input)) return;
-
-            // 1. Show what the user said
-            ChatDisplay.Text += $"\nYou: {input}\n";
-
-            // 2. Get the bot's response and show it
-            string response = _chatBot.ProcessInput(input);
-            ChatDisplay.Text += $"\nCUERER: {response}\n";
-            ChatDisplay.Text += new string('-', 40) + "\n";
-
-            // 3. Clear the input box for the next message
-            UserInput.Clear();
-
-            // 4. Automatically scroll to the bottom so the new message is visible
-            ChatScroller.ScrollToEnd();
-        }
     }
-
 }
+
