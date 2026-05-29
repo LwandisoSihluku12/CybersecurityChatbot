@@ -3,8 +3,8 @@
 ## 🛡️ Project Description
 CUERER is an advanced, educational chatbot designed to raise awareness about cybersecurity threats. Upgraded from a console application to a modern **Windows Presentation Foundation (WPF)** interface, CUERER now features intelligent keyword recognition, emotional sentiment detection, and user memory to provide a personalized learning experience.
 
-**Student Name:** [Your Name]  
-**Student Number:** [Your Student Number]
+**Student Name:** LWANDISO SIHLUKU  
+**Student Number:** ST10495433
 
 ---
 
@@ -45,13 +45,14 @@ The project follows clean **Object-Oriented Programming** principles by separati
 
 ## 🎥 Submission Links & Proof
 - **YouTube Demo**: [Insert Your Unlisted YouTube Link Here]
-- **GUI Screenshot**: [Insert Link/Path to your Screenshot]
-- **GitHub Actions Proof**: [Insert Screenshot of the Green Tick from your CI Workflow]
+- **GUI Screenshot**: 
+https://cdn.corenexis.com/files/c/7747398720.png
+- **GitHub Actions Proof**:
+https://cdn.corenexis.com/files/c/6273273720.png
 
 ---
 
 ## 📈 Version Control
-- **Commits**: Minimum of 6 meaningful commits documenting the development process.
 - **Releases**: 
     - `v2.0`: Core logic and modular class implementation.
     - `v2.1`: Final GUI styling, colored chat, and audio integration.
