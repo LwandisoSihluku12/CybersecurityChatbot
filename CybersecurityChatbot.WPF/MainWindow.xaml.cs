@@ -47,6 +47,19 @@ namespace CybersecurityChatbot.WPF
             UserInput.Clear();
 
             string response = _chatBot.ProcessInput(input);
+            // Check for specific response to launch quiz window
+           if (response.Contains("I'll open a new window for it."))
+           {
+              AppendMessage("CUERER", response, Brushes.Cyan);
+              // Launch the quiz window
+              CybersecurityChatbot.WPF.Windows.QuizWindow quizWindow = new CybersecurityChatbot.WPF.Windows.QuizWindow();
+             quizWindow.Show();
+           }
+        else
+           {
+                // 2. Different Colors (Bot = Cyan)
+                AppendMessage("CUERER", response, Brushes.Cyan);
+            }   
 
             // 2. Different Colors (Bot = Cyan)
             AppendMessage("CUERER", response, Brushes.Cyan);

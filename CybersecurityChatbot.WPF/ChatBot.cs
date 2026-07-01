@@ -1,5 +1,6 @@
 using System;
 using System.Media;
+using CybersecurityChatbot.WPF.Services;
 
 namespace CybersecurityChatbot.WPF
 {
@@ -10,6 +11,7 @@ namespace CybersecurityChatbot.WPF
         private MemoryStore _memory = new MemoryStore();
         private bool _awaitingName = true;
         private string? _lastTopic;
+        private QuizGame _quizGame = new QuizGame();
 
         public static object Blocks { get; internal set; }
 
@@ -25,7 +27,11 @@ namespace CybersecurityChatbot.WPF
                 _awaitingName = false;
                 return $"Nice to meet you, {_memory.UserName}! How can I help you today?";
             }
-
+            else if (input.Equals("start quiz", StringComparison.OrdinalIgnoreCase) || input.Equals("play quiz", StringComparison.OrdinalIgnoreCase))
+            {
+             // This will open the Quiz Window. MainWindow.xaml.cs will need to handle this.
+             return "OK, let's start the cybersecurity quiz! I'll open a new window for it.";
+            }
             if (input.Contains("tell me more", StringComparison.OrdinalIgnoreCase) && _lastTopic != null)
                 return $"Regarding {_lastTopic}: {_keywords.GetResponse(_lastTopic, out _)}";
 
