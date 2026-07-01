@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lwand\\CybersecurityChatbot\\CybersecurityChatbot.WPF\\CybersecurityChatbot.WPF.csproj": {}
+    "c:\\Users\\lwand\\CybersecurityChatbot\\CybersecurityChatbot.WPF\\CybersecurityChatbot.WPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lwand\\CybersecurityChatbot\\CybersecurityChatbot.WPF\\CybersecurityChatbot.WPF.csproj": {
+    "c:\\Users\\lwand\\CybersecurityChatbot\\CybersecurityChatbot.WPF\\CybersecurityChatbot.WPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lwand\\CybersecurityChatbot\\CybersecurityChatbot.WPF\\CybersecurityChatbot.WPF.csproj",
+        "projectUniqueName": "c:\\Users\\lwand\\CybersecurityChatbot\\CybersecurityChatbot.WPF\\CybersecurityChatbot.WPF.csproj",
         "projectName": "CybersecurityChatbot.WPF",
-        "projectPath": "C:\\Users\\lwand\\CybersecurityChatbot\\CybersecurityChatbot.WPF\\CybersecurityChatbot.WPF.csproj",
+        "projectPath": "c:\\Users\\lwand\\CybersecurityChatbot\\CybersecurityChatbot.WPF\\CybersecurityChatbot.WPF.csproj",
         "packagesPath": "C:\\Users\\lwand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lwand\\CybersecurityChatbot\\CybersecurityChatbot.WPF\\obj\\",
+        "outputPath": "c:\\Users\\lwand\\CybersecurityChatbot\\CybersecurityChatbot.WPF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lwand\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +43,12 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[9.7.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
