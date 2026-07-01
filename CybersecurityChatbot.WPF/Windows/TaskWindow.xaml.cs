@@ -3,6 +3,8 @@ using System.Windows;
 using CybersecurityChatbot.WPF.Services;
 using CybersecurityChatbot.WPF.Models;
 using System.Linq;
+using Microsoft.VisualBasic;
+
 
 namespace CybersecurityChatbot.WPF.Windows
 {
