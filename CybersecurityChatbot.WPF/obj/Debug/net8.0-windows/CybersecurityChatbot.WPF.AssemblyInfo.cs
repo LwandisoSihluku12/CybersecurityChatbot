@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CybersecurityChatbot.WPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8d0c43e2db8899733b0a0d4a21d9b87e0b48222")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e22cb5c96013f43dbff838fbad4adf287c2fc0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("CybersecurityChatbot.WPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CybersecurityChatbot.WPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
